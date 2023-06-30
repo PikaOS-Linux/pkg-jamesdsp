@@ -6,6 +6,8 @@ DEBIAN_FRONTEND=noninteractive
 git clone --recursive https://github.com/Audio4Linux/JDSP4Linux
 cd JDSP4Linux
 cp -rvf ../debian ./
+cp -rvf ../jamesdsp.desktop ./
+cp -rvf ../jamesdsp.png ./
 
 # Get build deps
 apt-get build-dep ./ -y
