@@ -1,19 +1,21 @@
-Source: upstream-name
-Section: admin
+Source: jamesdsp
+Section: audio
 Priority: optional
-Maintainer: name <email>
+Maintainer: ferrreo <harderthanfire@gmail.com>
 Standards-Version: 4.6.1
-Build-Depends: debhelper-compat (= 13)
+Build-Depends: debhelper-compat (= 13),
+               build-essential,
+               libarchive-dev,
+               qtbase5-private-dev,
+               qtbase5-dev,
+               libqt5svg5-dev,
+               libglibmm-2.4-dev,
+               libglib2.0-dev,
+               libpipewire-0.3-dev 
 Rules-Requires-Root: no
 
-Package: pkgname1
+Package: jamesdsp
 Architecture: linux-any
-# Delete any of these lines if un-used
-Depends: ${misc:Depends}, depends
-Recommends: high priority optdepends
-Conflicts: conflicts
-Suggests: low priority optdepends
-Breaks: also conflicts!?
-Provides: provides
-#
-Description: pkgdesc
+Depends: ${misc:Depends},
+Provides: jamesdsp
+Description: Awesome pulsewire audio effect and dsp manager
