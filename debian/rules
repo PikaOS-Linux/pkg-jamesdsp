@@ -8,13 +8,9 @@ export DH_VERBOSE = 1
 
 ## Source directory, called upon by $(srcdir)
 srcdir = $(shell debian/scripts/get_pwd.sh)
-## The Root of package number one, called upon by $(pkgdir1)
-pkgdir1 = $(srcdir)/debian/pkgdir1
-## The Root of package number two, you can add as many of these as you like
-pkgdir2 = $(srcdir)/debian/pkgdir2
 
 ## If building a singular package you can remove the number, and as you guessed you call upon it with $(pkgdir)
-# pkgdir = $(srcdir)/debian/pkgdir
+pkgdir = $(srcdir)/debian/jamesdsp
 
 ## === End end of region ===
 
@@ -69,9 +65,14 @@ pkgdir2 = $(srcdir)/debian/pkgdir2
 #		$(srcdir)/configure -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_DATADIR=/usr/share -DCMAKE_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu -DBUILD_PLUGIN=OFF
 
 ## overriding dh_install to install files to a package:
-#override_dh_auto_configure:
-#		mkdir -p $(pkgdir1)/usr/bin
-#		cp $(srcdir)/pikman $(pkgdir1)/usr/bin/
+override_dh_auto_install:
+		mkdir -p $(pkgdir)/usr/bin
+		cp -vf $(srcdir)/src/jamesdsp $(pkgdir)/usr/bin/
+		chmod 755 $(pkgdir)/usr/bin/jamesdsp
+		mkdir -p $(pkgdir)/usr/share/applications
+		mkdir -p $(pkgdir)/usr/share/icons/hicolor/scalable/apps
+		cp -vf $(srcdir)/jamesdsp.svg $(pkgdir)/usr/share/icons/hicolor/scalable/apps/
+		cp -vf $(srcdir)/jamesdsp.desktop $(pkgdir)/usr/share/applications/
 
 ## === End end of region ===
 
