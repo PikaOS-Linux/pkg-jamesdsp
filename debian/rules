@@ -70,8 +70,8 @@ override_dh_auto_install:
 		cp -vf $(srcdir)/src/jamesdsp $(pkgdir)/usr/bin/
 		chmod 755 $(pkgdir)/usr/bin/jamesdsp
 		mkdir -p $(pkgdir)/usr/share/applications
-		mkdir -p $(pkgdir)/usr/share/icons/hicolor/scalable/apps
-		cp -vf $(srcdir)/jamesdsp.svg $(pkgdir)/usr/share/icons/hicolor/scalable/apps/
+		mkdir -p $(pkgdir)//usr/share/pixmaps
+		cp -vf $(srcdir)/jamesdsp.png $(pkgdir)/usr/share/pixmaps/
 		cp -vf $(srcdir)/jamesdsp.desktop $(pkgdir)/usr/share/applications/
 
 ## === End end of region ===
